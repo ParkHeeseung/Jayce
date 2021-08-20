@@ -3,12 +3,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const isDevelopment = process.env.NODE_ENV === 'development'
-
 module.exports = {
   entry: './src/index.tsx',
   devtool: 'source-map',
-  mode: process.env.NODE_ENV,
+  mode: 'development',
   module: {
     rules: [
       {
@@ -16,7 +14,7 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: !isDevelopment },
+            options: { minimize: true },
           },
         ],
       },
@@ -43,21 +41,10 @@ module.exports = {
       {
         test: /\.module\.s(a|c)ss$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-              localsConvention: 'camelCase',
-              sourceMap: isDevelopment,
-            },
-          },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
+              sourceMap: false,
             },
           },
         ],
@@ -66,12 +53,11 @@ module.exports = {
         test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
+              sourceMap: false,
             },
           },
         ],
@@ -100,7 +86,7 @@ module.exports = {
                 quality: 85,
               },
               optipng: {
-                enabled: !isDevelopment,
+                enabled: true,
               },
               pngquant: {
                 quality: [0.65, 0.9],
@@ -121,7 +107,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: isDevelopment ? '[name].js' : '[name].[hash].js',
+    filename: '[name].[hash].js',
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -131,8 +117,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
   ],
   devServer: {

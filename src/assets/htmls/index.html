@@ -1,53 +1,9 @@
 <!DOCTYPE html>
-<html style="height:100%">
+<html style="height: 100%">
   <head>
-    <title>Caramora</title>
-    <meta name="viewport" content="width=750" />
-
-    <!-- kakao map api -->
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a4c7b2109d70a9f49a546e71bd6f605"
-    ></script>
-
-    <!-- exposed via window.zChat -->
-    <script src="https://dev.zopim.com/web-sdk/1.8.1/web-sdk.js" type="text/javascript"></script>
-
-    <!-- Start of riderdash Zendesk Widget script -->
-    <script
-      id="ze-snippet"
-      src="https://static.zdassets.com/ekr/snippet.js?key=53a6cf4f-dc2e-49d2-99ad-01ec6cdda43d"
-    ></script>
-    <script type="text/javascript">
-      zE(() => {
-        zE.hide()
-      })
-
-      const setDisplayName = data => {
-        zE(() => {
-          zE.identify(data)
-        })
-      }
-
-      window.setDisplayName = setDisplayName
-
-      window.zESettings = {
-        analytics: false,
-        webWidget: {
-          chat: {
-            departments: {
-              select: 'chatbot',
-            },
-          },
-        },
-      }
-    </script>
-
-    <script type="text/javascript">
-      zE('webWidget', 'setLocale', 'ko')
-    </script>
+    <title>Jayce Park</title>
   </head>
-  <body style="height:100%">
-    <div id="app" style="height:100%"></div>
+  <body style="height: 100%">
+    <div id="app" style="height: 100%"></div>
   </body>
 </html>
