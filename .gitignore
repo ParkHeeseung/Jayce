@@ -1,5 +1,4 @@
 node_modules
 .DS_Store
-dist
 .firebase
 firebase-debug.log
