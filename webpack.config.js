@@ -106,7 +106,7 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/dist`,
-    publicPath: '/',
+    publicPath: '/jayce',
     filename: '[name].[hash].js',
   },
   plugins: [
