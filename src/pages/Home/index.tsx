@@ -1,6 +1,8 @@
 import React from 'react'
 
+import HomeTemplate from './templates'
+
 const App: React.FunctionComponent = () => {
-  return <div>Hello World</div>
+  return <HomeTemplate></HomeTemplate>
 }
 export default App

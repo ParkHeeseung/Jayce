@@ -8,11 +8,22 @@ const createStore = (): typeof appStore => {
   const appStore = {
     // Initial state
     currentMainMenu: observable.box(theFirstURL),
+    screenClass: observable.box(window.screen.width > 750 ? 'xl' : 'xs'),
 
-    // Change menu
+    // Getter
+    get isDesktopView(): boolean {
+      const screenClass = appStore.screenClass.get()
+
+      return screenClass === 'xl'
+    },
+
+    // Setter
     changeMainMenu(data: string): void {
       appStore.currentMainMenu.set(data)
       history.push(data)
+    },
+    changeScreenClass(data: string): void {
+      appStore.screenClass.set(data)
     },
   }
 

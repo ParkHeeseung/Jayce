@@ -3,6 +3,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 module.exports = {
   entry: './src/index.tsx',
   devtool: 'source-map',
@@ -106,12 +108,13 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/dist`,
-    publicPath: '/jayce',
+    publicPath: isDevelopment ? '/' : '/jayce',
     filename: '[name].[hash].js',
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/assets/htmls/index.html',
+      favicon: './src/assets/images/jayce.png',
       filename: './index.html',
     }),
     new CleanWebpackPlugin(),
