@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-import history from '../utils/history'
+import history from '../../utils/history'
 
 const theFirstURL = window.location.pathname.substring(1)
 
@@ -18,8 +18,10 @@ const createStore = (): typeof appStore => {
     },
 
     // Setter
-    changeMainMenu(data: string): void {
-      appStore.currentMainMenu.set(data)
+    changeMainMenu(data: string, doNotPush = false): void {
+      appStore.currentMainMenu.set(data[0] === '/' ? data.substring(1) : data)
+
+      if (doNotPush) return
       history.push(data)
     },
     changeScreenClass(data: string): void {

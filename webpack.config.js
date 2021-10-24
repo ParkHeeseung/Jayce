@@ -40,13 +40,34 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },
+      // css
       {
         test: /\.module\.s(a|c)ss$/,
-        loader: [
+        use: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: 'postcss.config.js',
+              },
+            },
+          },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false,
+              sourceMap: isDevelopment,
             },
           },
         ],
@@ -54,12 +75,13 @@ module.exports = {
       {
         test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
-        loader: [
+        use: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false,
+              sourceMap: isDevelopment,
             },
           },
         ],
@@ -125,9 +147,8 @@ module.exports = {
     }),
   ],
   devServer: {
-    disableHostCheck: true,
     historyApiFallback: true,
-    contentBase: './dist',
+    static: './dist',
     hot: true,
     host: '0.0.0.0',
     port: 8078,

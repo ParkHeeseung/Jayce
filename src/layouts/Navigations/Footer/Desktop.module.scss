@@ -1,0 +1,41 @@
+@import '../../../assets/scsses/config.scss';
+
+.container {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 120px;
+  .flex {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .leftBox {
+      .logo {
+        width: 30px;
+        height: 30px;
+      }
+      .thanksText {
+        font-size: 20px;
+        font-weight: bold;
+        color: $white;
+      }
+      .copyRightText {
+        font-size: 15px;
+        font-weight: bold;
+        color: $white;
+      }
+    }
+    .rightBox {
+      .iconBox {
+        .icon {
+          margin-right: 10px;
+          filter: invert(100%);
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

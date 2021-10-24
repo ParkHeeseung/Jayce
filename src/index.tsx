@@ -12,7 +12,7 @@ import history from './utils/history'
 // Configuration for react-grid-system
 setConfiguration({
   gutterWidth: 0,
-  containerWidths: [0, 0, 1080, 1080, 1080],
+  containerWidths: [0, 0, 980, 980, 980],
   breakpoints: [0, 0, 751, 751, 751],
 })
 
