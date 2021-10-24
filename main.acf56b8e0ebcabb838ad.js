@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "ba5cc294f2dbc97da5a0";
+/******/ 	var hotCurrentHash = "acf56b8e0ebcabb838ad";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -34444,6 +34444,1596 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-grid-system/build/config.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-grid-system/build/config.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setConfiguration = exports.getConfiguration = void 0;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var configuration = {
+  breakpoints: [576, 768, 992, 1200, 1600],
+  containerWidths: [540, 750, 960, 1140, 1540],
+  gutterWidth: 30,
+  gridColumns: 12,
+  defaultScreenClass: 'xxl',
+  maxScreenClass: 'xxl'
+};
+
+var getConfiguration = function getConfiguration() {
+  return configuration;
+};
+
+exports.getConfiguration = getConfiguration;
+
+var setConfiguration = function setConfiguration(newConfiguration) {
+  configuration = _objectSpread(_objectSpread({}, configuration), newConfiguration);
+};
+
+exports.setConfiguration = setConfiguration;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/context/ScreenClassProvider/index.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/context/ScreenClassProvider/index.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.ScreenClassContext = exports.NO_PROVIDER_FLAG = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _utils = __webpack_require__(/*! ../../utils */ "./node_modules/react-grid-system/build/utils.js");
+
+var _config = __webpack_require__(/*! ../../config */ "./node_modules/react-grid-system/build/config.js");
+
+var _primitives = __webpack_require__(/*! ../../primitives */ "./node_modules/react-grid-system/build/primitives/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var NO_PROVIDER_FLAG = 'NO_PROVIDER_FLAG';
+exports.NO_PROVIDER_FLAG = NO_PROVIDER_FLAG;
+
+var ScreenClassContext = /*#__PURE__*/_react.default.createContext(NO_PROVIDER_FLAG);
+
+exports.ScreenClassContext = ScreenClassContext;
+
+var ScreenClassProvider = function ScreenClassProvider(_ref) {
+  var useOwnWidth = _ref.useOwnWidth,
+      children = _ref.children,
+      fallbackScreenClass = _ref.fallbackScreenClass;
+  var screenClassRef = (0, _react.useRef)();
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      mounted = _useState2[0],
+      setMounted = _useState2[1];
+
+  var detectedScreenClass = (0, _utils.useScreenClass)(screenClassRef, fallbackScreenClass);
+
+  var _getConfiguration = (0, _config.getConfiguration)(),
+      defaultScreenClass = _getConfiguration.defaultScreenClass;
+
+  var screenClass = mounted ? detectedScreenClass : fallbackScreenClass || defaultScreenClass;
+  (0, _react.useEffect)(function () {
+    return setMounted(true);
+  }, []);
+  return /*#__PURE__*/_react.default.createElement(ScreenClassContext.Provider, {
+    value: screenClass
+  }, useOwnWidth ? /*#__PURE__*/_react.default.createElement(_primitives.Div, {
+    ref: useOwnWidth ? screenClassRef : null
+  }, children) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, children));
+};
+
+ScreenClassProvider.propTypes = {
+  /**
+   * Children of the ScreenClassProvider.
+   * This should be all your child React nodes that are using `react-grid-system`.
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Boolean to determine whether own width should be used as source.
+   * When provided, the screen class is derived from own dimensions instead of the window.
+   */
+  useOwnWidth: _propTypes.default.bool,
+
+  /**
+   * Screen class to use when it cannot be determined otherwise.
+   * Useful for server side rendering.
+   */
+  fallbackScreenClass: _propTypes.default.oneOf([null, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'])
+};
+ScreenClassProvider.defaultProps = {
+  useOwnWidth: false,
+  fallbackScreenClass: null
+};
+var _default = ScreenClassProvider;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _ScreenClassProvider = _interopRequireWildcard(__webpack_require__(/*! ../ScreenClassProvider */ "./node_modules/react-grid-system/build/context/ScreenClassProvider/index.js"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ScreenClassResolver = function ScreenClassResolver(_ref) {
+  var children = _ref.children;
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassProvider.ScreenClassContext.Consumer, null, function (screenClassCheck) {
+    if (screenClassCheck === _ScreenClassProvider.NO_PROVIDER_FLAG) {
+      return /*#__PURE__*/_react.default.createElement(_ScreenClassProvider.default, null, /*#__PURE__*/_react.default.createElement(_ScreenClassProvider.ScreenClassContext.Consumer, null, function (screenClassResolved) {
+        return children(screenClassResolved);
+      }));
+    }
+
+    return children(screenClassCheck);
+  });
+};
+
+ScreenClassResolver.propTypes = {
+  children: _propTypes.default.func.isRequired
+};
+var _default = ScreenClassResolver;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Col/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Col/index.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _style = _interopRequireDefault(__webpack_require__(/*! ./style */ "./node_modules/react-grid-system/build/grid/Col/style.js"));
+
+var _config = __webpack_require__(/*! ../../config */ "./node_modules/react-grid-system/build/config.js");
+
+var _Row = __webpack_require__(/*! ../Row */ "./node_modules/react-grid-system/build/grid/Row/index.js");
+
+var _ScreenClassResolver = _interopRequireDefault(__webpack_require__(/*! ../../context/ScreenClassResolver */ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js"));
+
+var _primitives = __webpack_require__(/*! ../../primitives */ "./node_modules/react-grid-system/build/primitives/index.js");
+
+var _excluded = ["children", "xs", "sm", "md", "lg", "xl", "xxl", "offset", "pull", "push", "debug", "style", "component", "width"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var Col = function Col(_ref) {
+  var children = _ref.children,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl,
+      offset = _ref.offset,
+      pull = _ref.pull,
+      push = _ref.push,
+      debug = _ref.debug,
+      style = _ref.style,
+      component = _ref.component,
+      width = _ref.width,
+      otherProps = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassResolver.default, null, function (screenClass) {
+    return /*#__PURE__*/_react.default.createElement(_Row.GutterWidthContext.Consumer, null, function (gutterWidth) {
+      var theStyle = (0, _style.default)({
+        forceWidth: width,
+        width: {
+          xs: xs,
+          sm: sm,
+          md: md,
+          lg: lg,
+          xl: xl,
+          xxl: xxl
+        },
+        offset: offset,
+        pull: pull,
+        push: push,
+        debug: debug,
+        screenClass: screenClass,
+        gutterWidth: gutterWidth,
+        gridColumns: (0, _config.getConfiguration)().gridColumns,
+        moreStyle: style
+      });
+      return /*#__PURE__*/(0, _react.createElement)(component, _objectSpread(_objectSpread({
+        style: theStyle
+      }, otherProps), {}, {
+        children: children
+      }));
+    });
+  });
+};
+
+Col.propTypes = {
+  /**
+   * Content of the column
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * The width of the column for screenclass `xs`, either a number between 0 and 12, or "content"
+   */
+  xs: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * The width of the column for screenclass `sm`, either a number between 0 and 12, or "content"
+   */
+  sm: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * The width of the column for screenclass `md`, either a number between 0 and 12, or "content"
+   */
+  md: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * The width of the column for screenclass `lg`, either a number between 0 and 12, or "content"
+   */
+  lg: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * The width of the column for screenclass `xl`, either a number between 0 and 12, or "content"
+   */
+  xl: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * The width of the column for screenclass `xxl`, either a number between 0 and 12, or "content"
+   */
+  xxl: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.oneOf(['content'])]),
+
+  /**
+   * A fixed width of the column for all screenclasses"
+   */
+  width: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+
+  /**
+   * The offset of this column for all screenclasses
+   */
+  offset: _propTypes.default.shape({
+    xs: _propTypes.default.number,
+    sm: _propTypes.default.number,
+    md: _propTypes.default.number,
+    lg: _propTypes.default.number,
+    xl: _propTypes.default.number,
+    xxl: _propTypes.default.number
+  }),
+
+  /**
+   * The amount this column is pushed to the right for all screenclasses
+   */
+  push: _propTypes.default.shape({
+    xs: _propTypes.default.number,
+    sm: _propTypes.default.number,
+    md: _propTypes.default.number,
+    lg: _propTypes.default.number,
+    xl: _propTypes.default.number,
+    xxl: _propTypes.default.number
+  }),
+
+  /**
+   * The amount this column is pulled to the left for all screenclasses
+   */
+  pull: _propTypes.default.shape({
+    xs: _propTypes.default.number,
+    sm: _propTypes.default.number,
+    md: _propTypes.default.number,
+    lg: _propTypes.default.number,
+    xl: _propTypes.default.number,
+    xxl: _propTypes.default.number
+  }),
+
+  /**
+   * Optional styling
+   */
+  style: _propTypes.default.objectOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
+
+  /**
+   * Set to apply some debug styling
+   */
+  debug: _propTypes.default.bool,
+
+  /**
+   * Use your own component
+   */
+  component: _propTypes.default.elementType
+};
+Col.defaultProps = {
+  children: null,
+  xs: null,
+  sm: null,
+  md: null,
+  lg: null,
+  xl: null,
+  xxl: null,
+  width: null,
+  offset: {},
+  push: {},
+  pull: {},
+  style: {},
+  debug: false,
+  component: _primitives.Div
+};
+var _default = Col;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Col/style.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Col/style.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = __webpack_require__(/*! ../../utils */ "./node_modules/react-grid-system/build/utils.js");
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var hasWidth = function hasWidth(widths) {
+  return Object.keys(widths).reduce(function (acc, cur) {
+    return acc || widths[cur];
+  }, false);
+};
+
+var getWidth = function getWidth(width, gridColumns) {
+  if (typeof width !== 'number') return undefined;
+  var normalizedWidth = Math.max(0, Math.min(gridColumns, width));
+  return "".concat(100 / gridColumns * normalizedWidth, "%");
+};
+
+var _default = function _default(_ref) {
+  var _ref$forceWidth = _ref.forceWidth,
+      forceWidth = _ref$forceWidth === void 0 ? null : _ref$forceWidth,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? {} : _ref$width,
+      _ref$offset = _ref.offset,
+      offset = _ref$offset === void 0 ? {} : _ref$offset,
+      _ref$pull = _ref.pull,
+      pull = _ref$pull === void 0 ? {} : _ref$pull,
+      _ref$push = _ref.push,
+      push = _ref$push === void 0 ? {} : _ref$push,
+      debug = _ref.debug,
+      screenClass = _ref.screenClass,
+      gutterWidth = _ref.gutterWidth,
+      moreStyle = _ref.moreStyle,
+      gridColumns = _ref.gridColumns;
+  var styles = {
+    boxSizing: 'border-box',
+    minHeight: 1,
+    position: 'relative',
+    paddingLeft: gutterWidth / 2,
+    paddingRight: gutterWidth / 2,
+    width: '100%'
+  };
+
+  if (debug) {
+    styles.outline = '1px solid silver';
+    styles.background = 'rgba(0,0,0,.05)';
+    styles.lineHeight = '32px';
+  }
+
+  styles.flexBasis = '100%';
+  styles.flexGrow = 0;
+  styles.flexShrink = 0;
+  styles.maxWidth = '100%';
+  styles.marginLeft = '0%';
+  styles.right = 'auto';
+  styles.left = 'auto';
+
+  _utils.screenClasses.forEach(function (size, index) {
+    if (_utils.screenClasses.indexOf(screenClass) >= index) {
+      var currentWidth = getWidth(width[size], gridColumns);
+      var isSizedToContent = width[size] === 'content';
+      styles.flexBasis = isSizedToContent ? 'auto' : currentWidth || styles.flexBasis;
+      styles.width = styles.flexBasis;
+      styles.maxWidth = currentWidth || styles.maxWidth;
+      styles.marginLeft = getWidth(offset[size], gridColumns) || styles.marginLeft;
+      styles.right = getWidth(pull[size], gridColumns) || styles.right;
+      styles.left = getWidth(push[size], gridColumns) || styles.left;
+    }
+  });
+
+  if (!hasWidth(width)) {
+    styles.flexBasis = 0;
+    styles.flexGrow = 1;
+  }
+
+  if (forceWidth) {
+    styles.flexBasis = 'unset';
+    styles.flexGrow = 'unset';
+    styles.flexShrink = 'unset';
+    styles.width = forceWidth;
+  }
+
+  return _objectSpread(_objectSpread({}, styles), moreStyle);
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Container/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Container/index.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _style = _interopRequireWildcard(__webpack_require__(/*! ./style */ "./node_modules/react-grid-system/build/grid/Container/style.js"));
+
+var _config = __webpack_require__(/*! ../../config */ "./node_modules/react-grid-system/build/config.js");
+
+var _ScreenClassResolver = _interopRequireDefault(__webpack_require__(/*! ../../context/ScreenClassResolver */ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js"));
+
+var _primitives = __webpack_require__(/*! ../../primitives */ "./node_modules/react-grid-system/build/primitives/index.js");
+
+var _excluded = ["children", "fluid", "xs", "sm", "md", "lg", "xl", "xxl", "style", "component"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var Container = function Container(_ref) {
+  var children = _ref.children,
+      fluid = _ref.fluid,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl,
+      style = _ref.style,
+      component = _ref.component,
+      otherProps = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassResolver.default, null, function (screenClass) {
+    return /*#__PURE__*/(0, _react.createElement)(component, _objectSpread({
+      style: (0, _style.default)({
+        fluid: fluid,
+        xs: xs,
+        sm: sm,
+        md: md,
+        lg: lg,
+        xl: xl,
+        xxl: xxl,
+        screenClass: screenClass,
+        containerWidths: (0, _config.getConfiguration)().containerWidths,
+        gutterWidth: (0, _config.getConfiguration)().gutterWidth,
+        moreStyle: style
+      })
+    }, otherProps), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, children, /*#__PURE__*/_react.default.createElement(_primitives.Span, {
+      style: (0, _style.getAfterStyle)()
+    })));
+  });
+};
+
+Container.propTypes = {
+  /**
+   * Content of the component
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * True makes the container full-width, false fixed-width
+   */
+  fluid: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in xs, not present means fluid everywhere
+   */
+  xs: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in sm, not present means fluid everywhere
+   */
+  sm: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in md, not present means fluid everywhere
+   */
+  md: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in lg, not present means fluid everywhere
+   */
+  lg: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in xl, not present means fluid everywhere
+   */
+  xl: _propTypes.default.bool,
+
+  /**
+   * This is in combination with fluid enabled
+   * True makes container fluid only in xxl, not present means fluid everywhere
+   */
+  xxl: _propTypes.default.bool,
+
+  /**
+   * Optional styling
+   */
+  style: _propTypes.default.objectOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
+
+  /**
+   * Use your own component
+   */
+  component: _propTypes.default.elementType
+};
+Container.defaultProps = {
+  fluid: false,
+  xs: false,
+  sm: false,
+  md: false,
+  lg: false,
+  xl: false,
+  xxl: false,
+  style: {},
+  component: _primitives.Div
+};
+var _default = Container;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Container/style.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Container/style.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getAfterStyle = exports.default = void 0;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _default = function _default(_ref) {
+  var fluid = _ref.fluid,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl,
+      screenClass = _ref.screenClass,
+      containerWidths = _ref.containerWidths,
+      gutterWidth = _ref.gutterWidth,
+      moreStyle = _ref.moreStyle;
+  var styles = {
+    boxSizing: 'border-box',
+    position: 'relative',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingLeft: gutterWidth / 2,
+    paddingRight: gutterWidth / 2
+  };
+
+  if (fluid && !xs && !sm && !md && !lg && !xl) {
+    return _objectSpread(_objectSpread({}, styles), moreStyle);
+  }
+
+  if (screenClass === 'xs' && containerWidths[0] && !xs) {
+    styles.maxWidth = containerWidths[0];
+  }
+
+  if (screenClass === 'sm' && containerWidths[0] && !sm) {
+    styles.maxWidth = containerWidths[0];
+  }
+
+  if (screenClass === 'md' && containerWidths[1] && !md) {
+    styles.maxWidth = containerWidths[1];
+  }
+
+  if (screenClass === 'lg' && containerWidths[2] && !lg) {
+    styles.maxWidth = containerWidths[2];
+  }
+
+  if (screenClass === 'xl' && containerWidths[3] && !xl) {
+    styles.maxWidth = containerWidths[3];
+  }
+
+  if (screenClass === 'xxl' && containerWidths[4] && !xxl) {
+    styles.maxWidth = containerWidths[4];
+  }
+
+  return _objectSpread(_objectSpread({}, styles), moreStyle);
+};
+
+exports.default = _default;
+
+var getAfterStyle = function getAfterStyle() {
+  return {
+    display: 'table',
+    clear: 'both'
+  };
+};
+
+exports.getAfterStyle = getAfterStyle;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Row/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Row/index.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.GutterWidthContext = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _config = __webpack_require__(/*! ../../config */ "./node_modules/react-grid-system/build/config.js");
+
+var _style = _interopRequireDefault(__webpack_require__(/*! ./style */ "./node_modules/react-grid-system/build/grid/Row/style.js"));
+
+var _primitives = __webpack_require__(/*! ../../primitives */ "./node_modules/react-grid-system/build/primitives/index.js");
+
+var _excluded = ["children", "style", "align", "justify", "debug", "nogutter", "gutterWidth", "component", "nowrap", "direction"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var GutterWidthContext = /*#__PURE__*/_react.default.createContext(false);
+
+exports.GutterWidthContext = GutterWidthContext;
+
+var Row = function Row(_ref) {
+  var children = _ref.children,
+      style = _ref.style,
+      align = _ref.align,
+      justify = _ref.justify,
+      debug = _ref.debug,
+      nogutter = _ref.nogutter,
+      gutterWidth = _ref.gutterWidth,
+      component = _ref.component,
+      nowrap = _ref.nowrap,
+      direction = _ref.direction,
+      otherProps = _objectWithoutProperties(_ref, _excluded);
+
+  var theGutterWidth = (0, _config.getConfiguration)().gutterWidth;
+  if (nogutter) theGutterWidth = 0;
+  if (typeof gutterWidth === 'number') theGutterWidth = gutterWidth;
+  var theStyle = (0, _style.default)({
+    gutterWidth: theGutterWidth,
+    align: align,
+    justify: justify,
+    debug: debug,
+    moreStyle: style,
+    nowrap: nowrap,
+    direction: direction
+  });
+  return /*#__PURE__*/_react.default.createElement(component, _objectSpread({
+    style: theStyle
+  }, otherProps), /*#__PURE__*/_react.default.createElement(GutterWidthContext.Provider, {
+    value: theGutterWidth
+  }, children));
+};
+
+Row.propTypes = {
+  /**
+   * Content of the element
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Vertical column alignment
+   */
+  align: _propTypes.default.oneOf(['normal', 'start', 'center', 'end', 'stretch']),
+
+  /**
+   * Horizontal column alignment
+   */
+  justify: _propTypes.default.oneOf(['start', 'center', 'end', 'between', 'around', 'initial', 'inherit']),
+
+  /**
+   * flex-direction style attribute
+   */
+  direction: _propTypes.default.oneOf(['column', 'row', 'column-reverse', 'row-reverse']),
+
+  /**
+   * No gutter for this row
+   */
+  nogutter: _propTypes.default.bool,
+
+  /**
+   * Custom gutter width for this row
+   */
+  gutterWidth: _propTypes.default.number,
+
+  /**
+   * Optional styling
+   */
+  style: _propTypes.default.objectOf(_propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])),
+
+  /**
+   * Set to apply some debug styling
+   */
+  debug: _propTypes.default.bool,
+
+  /**
+   * Use your own component
+   */
+  component: _propTypes.default.elementType,
+
+  /**
+   * Whether the cols should not wrap
+   */
+  nowrap: _propTypes.default.bool
+};
+Row.defaultProps = {
+  align: 'normal',
+  justify: 'start',
+  direction: 'row',
+  nogutter: false,
+  gutterWidth: null,
+  style: {},
+  debug: false,
+  component: _primitives.Div,
+  nowrap: false
+};
+var _default = Row;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/grid/Row/style.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/grid/Row/style.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _default = function _default(_ref) {
+  var gutterWidth = _ref.gutterWidth,
+      align = _ref.align,
+      justify = _ref.justify,
+      debug = _ref.debug,
+      moreStyle = _ref.moreStyle,
+      nowrap = _ref.nowrap,
+      direction = _ref.direction;
+  // Vertical alignment
+  var alignItems = align;
+  if (align === 'start') alignItems = 'flex-start';
+  if (align === 'end') alignItems = 'flex-end'; // Horizontal alignment
+
+  var justifyContent = justify;
+  if (justify === 'start') justifyContent = 'flex-start';
+  if (justify === 'end') justifyContent = 'flex-end';
+  if (justify === 'between') justifyContent = 'space-between';
+  if (justify === 'around') justifyContent = 'space-around';
+  if (justify === 'center') justifyContent = 'center';
+  if (justify === 'initial') justifyContent = 'initial';
+  if (justify === 'inherit') justifyContent = 'inherit';
+  var flexDirection = ['column', 'row', 'column-reverse', 'row-reverse'].includes(direction) ? direction : undefined;
+  var styles = {
+    marginLeft: -gutterWidth / 2,
+    marginRight: -gutterWidth / 2,
+    display: 'flex',
+    flexWrap: nowrap ? 'nowrap' : 'wrap',
+    flexGrow: 0,
+    flexShrink: 0,
+    alignItems: alignItems,
+    justifyContent: justifyContent,
+    flexDirection: flexDirection
+  };
+
+  if (debug) {
+    styles.background = 'rgba(128,128,128,.05)';
+  }
+
+  return _objectSpread(_objectSpread({}, styles), moreStyle);
+};
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-grid-system/build/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Col", {
+  enumerable: true,
+  get: function get() {
+    return _Col.default;
+  }
+});
+Object.defineProperty(exports, "Container", {
+  enumerable: true,
+  get: function get() {
+    return _Container.default;
+  }
+});
+Object.defineProperty(exports, "Row", {
+  enumerable: true,
+  get: function get() {
+    return _Row.default;
+  }
+});
+Object.defineProperty(exports, "Hidden", {
+  enumerable: true,
+  get: function get() {
+    return _Hidden.default;
+  }
+});
+Object.defineProperty(exports, "Visible", {
+  enumerable: true,
+  get: function get() {
+    return _Visible.default;
+  }
+});
+Object.defineProperty(exports, "ScreenClassRender", {
+  enumerable: true,
+  get: function get() {
+    return _ScreenClassRender.default;
+  }
+});
+Object.defineProperty(exports, "ScreenClassProvider", {
+  enumerable: true,
+  get: function get() {
+    return _ScreenClassProvider.default;
+  }
+});
+Object.defineProperty(exports, "ScreenClassContext", {
+  enumerable: true,
+  get: function get() {
+    return _ScreenClassProvider.ScreenClassContext;
+  }
+});
+Object.defineProperty(exports, "setConfiguration", {
+  enumerable: true,
+  get: function get() {
+    return _config.setConfiguration;
+  }
+});
+Object.defineProperty(exports, "useScreenClass", {
+  enumerable: true,
+  get: function get() {
+    return _utils.useScreenClass;
+  }
+});
+
+var _Col = _interopRequireDefault(__webpack_require__(/*! ./grid/Col */ "./node_modules/react-grid-system/build/grid/Col/index.js"));
+
+var _Container = _interopRequireDefault(__webpack_require__(/*! ./grid/Container */ "./node_modules/react-grid-system/build/grid/Container/index.js"));
+
+var _Row = _interopRequireDefault(__webpack_require__(/*! ./grid/Row */ "./node_modules/react-grid-system/build/grid/Row/index.js"));
+
+var _Hidden = _interopRequireDefault(__webpack_require__(/*! ./utilities/Hidden */ "./node_modules/react-grid-system/build/utilities/Hidden/index.js"));
+
+var _Visible = _interopRequireDefault(__webpack_require__(/*! ./utilities/Visible */ "./node_modules/react-grid-system/build/utilities/Visible/index.js"));
+
+var _ScreenClassRender = _interopRequireDefault(__webpack_require__(/*! ./utilities/ScreenClassRender */ "./node_modules/react-grid-system/build/utilities/ScreenClassRender/index.js"));
+
+var _ScreenClassProvider = _interopRequireWildcard(__webpack_require__(/*! ./context/ScreenClassProvider */ "./node_modules/react-grid-system/build/context/ScreenClassProvider/index.js"));
+
+var _config = __webpack_require__(/*! ./config */ "./node_modules/react-grid-system/build/config.js");
+
+var _utils = __webpack_require__(/*! ./utils */ "./node_modules/react-grid-system/build/utils.js");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/primitives/Div/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/primitives/Div/index.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = 'div';
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/primitives/Span/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/primitives/Span/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = 'span';
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/primitives/Window/index.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/primitives/Window/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/* global window */
+var _default = typeof window !== 'undefined' ? window : undefined;
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/primitives/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/primitives/index.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Div", {
+  enumerable: true,
+  get: function get() {
+    return _Div.default;
+  }
+});
+Object.defineProperty(exports, "Span", {
+  enumerable: true,
+  get: function get() {
+    return _Span.default;
+  }
+});
+Object.defineProperty(exports, "Window", {
+  enumerable: true,
+  get: function get() {
+    return _Window.default;
+  }
+});
+
+var _Div = _interopRequireDefault(__webpack_require__(/*! ./Div */ "./node_modules/react-grid-system/build/primitives/Div/index.js"));
+
+var _Span = _interopRequireDefault(__webpack_require__(/*! ./Span */ "./node_modules/react-grid-system/build/primitives/Span/index.js"));
+
+var _Window = _interopRequireDefault(__webpack_require__(/*! ./Window */ "./node_modules/react-grid-system/build/primitives/Window/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utilities/Hidden/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utilities/Hidden/index.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var style = _interopRequireWildcard(__webpack_require__(/*! ./style */ "./node_modules/react-grid-system/build/utilities/Hidden/style.js"));
+
+var _ScreenClassResolver = _interopRequireDefault(__webpack_require__(/*! ../../context/ScreenClassResolver */ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Hidden = function Hidden(_ref) {
+  var children = _ref.children,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl;
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassResolver.default, null, function (screenClass) {
+    return style.hidden({
+      screenClass: screenClass,
+      xs: xs,
+      sm: sm,
+      md: md,
+      lg: lg,
+      xl: xl,
+      xxl: xxl
+    }) ? null : children;
+  });
+};
+
+Hidden.propTypes = {
+  /**
+   * Content of the component
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Hide on extra small devices
+   */
+  xs: _propTypes.default.bool,
+
+  /**
+   * Hide on small devices
+   */
+  sm: _propTypes.default.bool,
+
+  /**
+   * Hide on medium devices
+   */
+  md: _propTypes.default.bool,
+
+  /**
+   * Hide on large devices
+   */
+  lg: _propTypes.default.bool,
+
+  /**
+   * Hide on xlarge devices
+   */
+  xl: _propTypes.default.bool,
+
+  /**
+   * Hide on xxlarge devices
+   */
+  xxl: _propTypes.default.bool
+};
+Hidden.defaultProps = {
+  xs: false,
+  sm: false,
+  md: false,
+  lg: false,
+  xl: false,
+  xxl: false
+};
+var _default = Hidden;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utilities/Hidden/style.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utilities/Hidden/style.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.hidden = void 0;
+
+var hidden = function hidden(_ref) {
+  var screenClass = _ref.screenClass,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl;
+  if (screenClass === 'xxl') return xxl;
+  if (screenClass === 'xl') return xl;
+  if (screenClass === 'lg') return lg;
+  if (screenClass === 'md') return md;
+  if (screenClass === 'sm') return sm;
+  return xs;
+};
+
+exports.hidden = hidden;
+var _default = hidden;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utilities/ScreenClassRender/index.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utilities/ScreenClassRender/index.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _ScreenClassResolver = _interopRequireDefault(__webpack_require__(/*! ../../context/ScreenClassResolver */ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ScreenClassRender = function ScreenClassRender(_ref) {
+  var render = _ref.render;
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassResolver.default, null, function (screenClass) {
+    return render(screenClass);
+  });
+};
+
+ScreenClassRender.propTypes = {
+  /**
+   * The function which return value will be rendered.
+   * Will be called with one argument: the screen class.
+   */
+  render: _propTypes.default.func.isRequired
+};
+var _default = ScreenClassRender;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utilities/Visible/index.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utilities/Visible/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var style = _interopRequireWildcard(__webpack_require__(/*! ./style */ "./node_modules/react-grid-system/build/utilities/Visible/style.js"));
+
+var _ScreenClassResolver = _interopRequireDefault(__webpack_require__(/*! ../../context/ScreenClassResolver */ "./node_modules/react-grid-system/build/context/ScreenClassResolver/index.js"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Visible = function Visible(_ref) {
+  var children = _ref.children,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl;
+  return /*#__PURE__*/_react.default.createElement(_ScreenClassResolver.default, null, function (screenClass) {
+    return !style.visible({
+      screenClass: screenClass,
+      xs: xs,
+      sm: sm,
+      md: md,
+      lg: lg,
+      xl: xl,
+      xxl: xxl
+    }) ? null : children;
+  });
+};
+
+Visible.propTypes = {
+  /**
+   * Content of the component
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Show on extra small devices
+   */
+  xs: _propTypes.default.bool,
+
+  /**
+   * Show on small devices
+   */
+  sm: _propTypes.default.bool,
+
+  /**
+   * Show on medium devices
+   */
+  md: _propTypes.default.bool,
+
+  /**
+   * Show on large devices
+   */
+  lg: _propTypes.default.bool,
+
+  /**
+   * Show on xlarge devices
+   */
+  xl: _propTypes.default.bool,
+
+  /**
+   * Show on xxlarge devices
+   */
+  xxl: _propTypes.default.bool
+};
+Visible.defaultProps = {
+  xs: false,
+  sm: false,
+  md: false,
+  lg: false,
+  xl: false,
+  xxl: false
+};
+var _default = Visible;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utilities/Visible/style.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utilities/Visible/style.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.visible = void 0;
+
+var visible = function visible(_ref) {
+  var screenClass = _ref.screenClass,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl;
+  if (screenClass === 'xxl') return xxl;
+  if (screenClass === 'xl') return xl;
+  if (screenClass === 'lg') return lg;
+  if (screenClass === 'md') return md;
+  if (screenClass === 'sm') return sm;
+  return xs;
+};
+
+exports.visible = visible;
+var _default = visible;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-grid-system/build/utils.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-grid-system/build/utils.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useScreenClass = exports.screenClasses = void 0;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _config = __webpack_require__(/*! ./config */ "./node_modules/react-grid-system/build/config.js");
+
+var _primitives = __webpack_require__(/*! ./primitives */ "./node_modules/react-grid-system/build/primitives/index.js");
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var getViewPort = function getViewPort(source) {
+  if (source && source.current && source.current.clientWidth) {
+    return source.current.clientWidth;
+  }
+
+  if (typeof _primitives.Window !== 'undefined' && _primitives.Window.innerWidth) {
+    return _primitives.Window.innerWidth;
+  }
+
+  return null;
+};
+
+var screenClasses = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+exports.screenClasses = screenClasses;
+
+var useScreenClass = function useScreenClass(source, fallbackScreenClass) {
+  var getScreenClass = function getScreenClass() {
+    var _getConfiguration = (0, _config.getConfiguration)(),
+        breakpoints = _getConfiguration.breakpoints,
+        defaultScreenClass = _getConfiguration.defaultScreenClass,
+        maxScreenClass = _getConfiguration.maxScreenClass;
+
+    var newScreenClass = defaultScreenClass;
+    var viewport = getViewPort(source);
+
+    if (viewport) {
+      newScreenClass = 'xs';
+      if (breakpoints[0] && viewport >= breakpoints[0]) newScreenClass = 'sm';
+      if (breakpoints[1] && viewport >= breakpoints[1]) newScreenClass = 'md';
+      if (breakpoints[2] && viewport >= breakpoints[2]) newScreenClass = 'lg';
+      if (breakpoints[3] && viewport >= breakpoints[3]) newScreenClass = 'xl';
+      if (breakpoints[4] && viewport >= breakpoints[4]) newScreenClass = 'xxl';
+    } else if (fallbackScreenClass) {
+      newScreenClass = fallbackScreenClass;
+    }
+
+    var newScreenClassIndex = screenClasses.indexOf(newScreenClass);
+    var maxScreenClassIndex = screenClasses.indexOf(maxScreenClass);
+
+    if (maxScreenClassIndex >= 0 && newScreenClassIndex > maxScreenClassIndex) {
+      newScreenClass = screenClasses[maxScreenClassIndex];
+    }
+
+    return newScreenClass;
+  };
+
+  var _useState = (0, _react.useState)(function () {
+    return getScreenClass();
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      screenClass = _useState2[0],
+      setScreenClass = _useState2[1];
+
+  (0, _react.useEffect)(function () {
+    var handleWindowResized = function handleWindowResized() {
+      return setScreenClass(getScreenClass());
+    };
+
+    _primitives.Window.addEventListener('resize', handleWindowResized, false);
+
+    return function () {
+      _primitives.Window.removeEventListener('resize', handleWindowResized, false);
+    };
+  }, []);
+  return screenClass;
+};
+
+exports.useScreenClass = useScreenClass;
+
+/***/ }),
+
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -39309,18 +40899,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_grid_system_1 = __webpack_require__(/*! react-grid-system */ "./node_modules/react-grid-system/build/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-// import useRootData from './hooks/useRootData'
-var Landing_1 = __importDefault(__webpack_require__(/*! ./pages/Landing */ "./src/pages/Landing/index.tsx"));
+var useRootData_1 = __importDefault(__webpack_require__(/*! ./hooks/useRootData */ "./src/hooks/useRootData.ts"));
+var About_1 = __importDefault(__webpack_require__(/*! ./pages/About */ "./src/pages/About/index.tsx"));
+var Home_1 = __importDefault(__webpack_require__(/*! ./pages/Home */ "./src/pages/Home/index.tsx"));
+var Work_1 = __importDefault(__webpack_require__(/*! ./pages/Work */ "./src/pages/Work/index.tsx"));
+var Writing_1 = __importDefault(__webpack_require__(/*! ./pages/Writing */ "./src/pages/Writing/index.tsx"));
 var App = function () {
+    var changeScreenClass = useRootData_1.default(function (_a) {
+        var appStore = _a.appStore;
+        return ({
+            changeScreenClass: appStore.changeScreenClass,
+        });
+    }).changeScreenClass;
+    var componentRef = react_1.useRef(null);
+    var currentScreenClass = react_grid_system_1.useScreenClass(componentRef);
     var history = react_router_dom_1.useHistory();
     var location = react_router_dom_1.useLocation();
     react_1.useEffect(function () {
         // scroll up to top when switching pages
         window.scrollTo(0, 0);
     }, [history, location]);
-    return (react_1.default.createElement(react_router_dom_1.Switch, null,
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/", component: Landing_1.default })));
+    react_1.useEffect(function () {
+        // Fix for react-grid-system v7
+        changeScreenClass(currentScreenClass === 'xxl' ? 'xl' : currentScreenClass);
+    }, [currentScreenClass]);
+    return (react_1.default.createElement("div", { ref: componentRef },
+        react_1.default.createElement(react_router_dom_1.Switch, null,
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/", component: Home_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/work", component: Work_1.default }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/writing", component: Writing_1.default }))));
 };
 exports.default = App;
 
@@ -39338,9 +40948,40 @@ exports.default = App;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".body {\n  position: relative; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px;\n  min-width: 750px; }\n\nbody::-webkit-scrollbar {\n  display: block;\n  width: 12px;\n  height: 12px; }\n\nbody::-webkit-scrollbar-track {\n  background-color: #f1f1f1;\n  -webkit-border-radius: 20px;\n  border-radius: 20px; }\n\nbody::-webkit-scrollbar-thumb {\n  background-color: #c1c1c1;\n  border: 2px solid transparent;\n  background-clip: content-box;\n  -webkit-border-radius: 20px;\n  border-radius: 20px; }\n\n/* remove input default style */\ninput {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\n/* upper IE10 version, remove input box default style */\ninput::-ms-clear {\n  display: none; }\n\n/* upper IE10 version, remove input box password eye  */\ninput[type='password']::-ms-reveal,\ninput[type='password']::-ms-clear {\n  display: none; }\n\n/* remove input type number arrow */\ninput[type='number']::-webkit-inner-spin-button,\ninput[type='number']::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\n/* remove select box  default style */\nselect {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\n/* remove IE Select box arrow */\nselect::-ms-expand {\n  display: none; }\n\n/* remove Firefox input number arrow */\ninput[type='number']::-webkit-outer-spin-button,\ninput[type='number']::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none; }\n\ninput[type='number'] {\n  -moz-appearance: textfield; }\n\nsvg use {\n  pointer-events: none; }\n\n* {\n  -webkit-tap-highlight-color: transparent; }\n", ""]);
 // Exports
 module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./src/hooks/useRootData.ts":
+/*!**********************************!*\
+  !*** ./src/hooks/useRootData.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useStoreData = void 0;
+var mobx_react_lite_1 = __webpack_require__(/*! mobx-react-lite */ "./node_modules/mobx-react-lite/es/index.js");
+var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var context_1 = __webpack_require__(/*! ../utils/context */ "./src/utils/context.tsx");
+exports.useStoreData = function (context, storeSelector, dataSelector) {
+    var value = react_1.useContext(context);
+    if (!value) {
+        throw new Error('No store');
+    }
+    var store = storeSelector(value);
+    return mobx_react_lite_1.useObserver(function () {
+        return dataSelector(store);
+    });
+};
+exports.default = (function (dataSelector) {
+    return exports.useStoreData(context_1.storesContext, function (contextData) { return contextData; }, dataSelector);
+});
 
 
 /***/ }),
@@ -39380,22 +41021,190 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(/*! ./assets/scsses/global.scss */ "./src/assets/scsses/global.scss");
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var ReactDOM = __importStar(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
+var react_grid_system_1 = __webpack_require__(/*! react-grid-system */ "./node_modules/react-grid-system/build/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var app_1 = __importDefault(__webpack_require__(/*! ./app */ "./src/app.tsx"));
 var context_1 = __webpack_require__(/*! ./utils/context */ "./src/utils/context.tsx");
 var history_1 = __importDefault(__webpack_require__(/*! ./utils/history */ "./src/utils/history.ts"));
+// Configuration for react-grid-system
+react_grid_system_1.setConfiguration({
+    gutterWidth: 0,
+    containerWidths: [0, 0, 1080, 1080, 1080],
+    breakpoints: [0, 0, 751, 751, 751],
+});
 ReactDOM.render(react_1.default.createElement(react_router_dom_1.Router, { history: history_1.default },
-    react_1.default.createElement(context_1.StoreProvider, null,
-        react_1.default.createElement(app_1.default, null))), document.getElementById('app'));
+    react_1.default.createElement(react_grid_system_1.ScreenClassProvider, null,
+        react_1.default.createElement(context_1.StoreProvider, null,
+            react_1.default.createElement(app_1.default, null)))), document.getElementById('app'));
 module.hot.accept();
 
 
 /***/ }),
 
-/***/ "./src/pages/Landing/index.tsx":
-/*!*************************************!*\
-  !*** ./src/pages/Landing/index.tsx ***!
-  \*************************************/
+/***/ "./src/layouts/Layouts/Default/index.tsx":
+/*!***********************************************!*\
+  !*** ./src/layouts/Layouts/Default/index.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_grid_system_1 = __webpack_require__(/*! react-grid-system */ "./node_modules/react-grid-system/build/index.js");
+var Footer_1 = __importDefault(__webpack_require__(/*! ../../Navigations/Footer */ "./src/layouts/Navigations/Footer/index.tsx"));
+var Header_1 = __importDefault(__webpack_require__(/*! ../../Navigations/Header */ "./src/layouts/Navigations/Header/index.tsx"));
+var App = function (_a) {
+    var children = _a.children;
+    return (react_1.default.createElement(react_grid_system_1.Container, null,
+        react_1.default.createElement(Header_1.default, null),
+        react_1.default.createElement("div", null, children),
+        react_1.default.createElement(Footer_1.default, null)));
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Footer/Desktop.module.scss":
+/*!************************************************************!*\
+  !*** ./src/layouts/Navigations/Footer/Desktop.module.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Footer/Mobile.module.scss":
+/*!***********************************************************!*\
+  !*** ./src/layouts/Navigations/Footer/Mobile.module.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Footer/index.tsx":
+/*!**************************************************!*\
+  !*** ./src/layouts/Navigations/Footer/index.tsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var useRootData_1 = __importDefault(__webpack_require__(/*! ../../../hooks/useRootData */ "./src/hooks/useRootData.ts"));
+var Desktop_module_scss_1 = __importDefault(__webpack_require__(/*! ./Desktop.module.scss */ "./src/layouts/Navigations/Footer/Desktop.module.scss"));
+var Mobile_module_scss_1 = __importDefault(__webpack_require__(/*! ./Mobile.module.scss */ "./src/layouts/Navigations/Footer/Mobile.module.scss"));
+var App = function () {
+    var isDesktopView = useRootData_1.default(function (_a) {
+        var appStore = _a.appStore;
+        return ({
+            isDesktopView: appStore.isDesktopView,
+        });
+    }).isDesktopView;
+    var styles = isDesktopView ? Desktop_module_scss_1.default : Mobile_module_scss_1.default;
+    return react_1.default.createElement("div", { className: styles.contaier }, "Footer");
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Header/Desktop.module.scss":
+/*!************************************************************!*\
+  !*** ./src/layouts/Navigations/Header/Desktop.module.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Header/Mobile.module.scss":
+/*!***********************************************************!*\
+  !*** ./src/layouts/Navigations/Header/Mobile.module.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/layouts/Navigations/Header/index.tsx":
+/*!**************************************************!*\
+  !*** ./src/layouts/Navigations/Header/index.tsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var useRootData_1 = __importDefault(__webpack_require__(/*! ../../../hooks/useRootData */ "./src/hooks/useRootData.ts"));
+var Desktop_module_scss_1 = __importDefault(__webpack_require__(/*! ./Desktop.module.scss */ "./src/layouts/Navigations/Header/Desktop.module.scss"));
+var Mobile_module_scss_1 = __importDefault(__webpack_require__(/*! ./Mobile.module.scss */ "./src/layouts/Navigations/Header/Mobile.module.scss"));
+var App = function () {
+    var isDesktopView = useRootData_1.default(function (_a) {
+        var appStore = _a.appStore;
+        return ({
+            isDesktopView: appStore.isDesktopView,
+        });
+    }).isDesktopView;
+    var styles = isDesktopView ? Desktop_module_scss_1.default : Mobile_module_scss_1.default;
+    return react_1.default.createElement("div", { className: styles.contaier }, "Header " + isDesktopView);
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/About/index.tsx":
+/*!***********************************!*\
+  !*** ./src/pages/About/index.tsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var templates_1 = __importDefault(__webpack_require__(/*! ./templates */ "./src/pages/About/templates/index.tsx"));
+var App = function () {
+    return react_1.default.createElement(templates_1.default, null);
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/About/templates/index.tsx":
+/*!*********************************************!*\
+  !*** ./src/pages/About/templates/index.tsx ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39407,7 +41216,144 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var App = function () {
-    return react_1.default.createElement("div", null, "Hello World");
+    return react_1.default.createElement("div", null, "About");
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Home/index.tsx":
+/*!**********************************!*\
+  !*** ./src/pages/Home/index.tsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var templates_1 = __importDefault(__webpack_require__(/*! ./templates */ "./src/pages/Home/templates/index.tsx"));
+var App = function () {
+    return react_1.default.createElement(templates_1.default, null);
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Home/templates/index.tsx":
+/*!********************************************!*\
+  !*** ./src/pages/Home/templates/index.tsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Default_1 = __importDefault(__webpack_require__(/*! ../../../layouts/Layouts/Default */ "./src/layouts/Layouts/Default/index.tsx"));
+var App = function () {
+    return (react_1.default.createElement(Default_1.default, null,
+        react_1.default.createElement("div", null, "Home")));
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Work/index.tsx":
+/*!**********************************!*\
+  !*** ./src/pages/Work/index.tsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var templates_1 = __importDefault(__webpack_require__(/*! ./templates */ "./src/pages/Work/templates/index.tsx"));
+var App = function () {
+    return react_1.default.createElement(templates_1.default, null);
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Work/templates/index.tsx":
+/*!********************************************!*\
+  !*** ./src/pages/Work/templates/index.tsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var App = function () {
+    return react_1.default.createElement("div", null, "Work");
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Writing/index.tsx":
+/*!*************************************!*\
+  !*** ./src/pages/Writing/index.tsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var templates_1 = __importDefault(__webpack_require__(/*! ./templates */ "./src/pages/Writing/templates/index.tsx"));
+var App = function () {
+    return react_1.default.createElement(templates_1.default, null);
+};
+exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/pages/Writing/templates/index.tsx":
+/*!***********************************************!*\
+  !*** ./src/pages/Writing/templates/index.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var App = function () {
+    return react_1.default.createElement("div", null, "Writing");
 };
 exports.default = App;
 
@@ -39434,10 +41380,19 @@ var createStore = function () {
     var appStore = {
         // Initial state
         currentMainMenu: mobx_1.observable.box(theFirstURL),
-        // Change menu
+        screenClass: mobx_1.observable.box(window.screen.width > 750 ? 'xl' : 'xs'),
+        // Getter
+        get isDesktopView() {
+            var screenClass = appStore.screenClass.get();
+            return screenClass === 'xl';
+        },
+        // Setter
         changeMainMenu: function (data) {
             appStore.currentMainMenu.set(data);
             history_1.default.push(data);
+        },
+        changeScreenClass: function (data) {
+            appStore.screenClass.set(data);
         },
     };
     return appStore;
@@ -39535,4 +41490,4 @@ exports.default = history_1.createBrowserHistory();
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.ba5cc294f2dbc97da5a0.js.map
+//# sourceMappingURL=main.acf56b8e0ebcabb838ad.js.map
