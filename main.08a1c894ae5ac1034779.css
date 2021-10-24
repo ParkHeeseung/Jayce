@@ -28,21 +28,21 @@ body::-webkit-scrollbar-thumb {
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: local("NotoSansKR"), url(/jaycejaycefonts/NotoSansKR-Regular-Subset.woff2) format("woff2"), url(/jaycejaycefonts/NotoSansKR-Regular-Subset.woff) format("woff"), url(/jaycejaycefonts/NotoSansKR-Regular-Subset.otf) format("opentype"); }
+  src: local("NotoSansKR"), url(/fonts/NotoSansKR-Regular-Subset.woff2) format("woff2"), url(/fonts/NotoSansKR-Regular-Subset.woff) format("woff"), url(/fonts/NotoSansKR-Regular-Subset.otf) format("opentype"); }
 
 @font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
   font-weight: 500;
   font-display: fallback;
-  src: local("NotoSansKR"), url(/jaycejaycefonts/NotoSansKR-Medium-Subset.woff2) format("woff2"), url(/jaycejaycefonts/NotoSansKR-Medium-Subset.woff) format("woff"), url(/jaycejaycefonts/NotoSansKR-Medium-Subset.otf) format("opentype"); }
+  src: local("NotoSansKR"), url(/fonts/NotoSansKR-Medium-Subset.woff2) format("woff2"), url(/fonts/NotoSansKR-Medium-Subset.woff) format("woff"), url(/fonts/NotoSansKR-Medium-Subset.otf) format("opentype"); }
 
 @font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: local("NotoSansKR"), url(/jaycejaycefonts/NotoSansKR-Bold-Subset.woff2) format("woff2"), url(/jaycejaycefonts/NotoSansKR-Bold-Subset.woff) format("woff"), url(/jaycejaycefonts/NotoSansKR-Bold-Subset.otf) format("opentype"); }
+  src: local("NotoSansKR"), url(/fonts/NotoSansKR-Bold-Subset.woff2) format("woff2"), url(/fonts/NotoSansKR-Bold-Subset.woff) format("woff"), url(/fonts/NotoSansKR-Bold-Subset.otf) format("opentype"); }
 
 /* remove input default style */
 input {
