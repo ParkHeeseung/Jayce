@@ -1,0 +1,82 @@
+body {
+  margin: 0px;
+  min-width: 750px;
+}
+
+body::-webkit-scrollbar {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+/* remove input default style */
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* upper IE10 version, remove input box default style */
+input::-ms-clear {
+  display: none;
+}
+
+/* upper IE10 version, remove input box password eye  */
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+}
+
+/* remove input type number arrow */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* remove select box  default style */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* remove IE Select box arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* remove Firefox input number arrow */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+// svg file dynamic change
+svg use {
+  pointer-events: none;
+}
+
+* {
+  // Android mobile cursor pointer transparent
+  -webkit-tap-highlight-color: transparent;
+}
