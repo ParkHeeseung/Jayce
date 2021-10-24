@@ -1,0 +1,230 @@
+/*!****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/assets/scsses/global.scss ***!
+  \****************************************************************************************************************************************************/
+body {
+  margin: 0px;
+  min-width: 750px;
+  background-color: #02112f; }
+
+body::-webkit-scrollbar {
+  display: block;
+  width: 12px;
+  height: 12px; }
+
+body::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; }
+
+body::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; }
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: local("NotoSansKR"), url(/jaycefonts/NotoSansKR-Regular-Subset.woff2) format("woff2"), url(/jaycefonts/NotoSansKR-Regular-Subset.woff) format("woff"), url(/jaycefonts/NotoSansKR-Regular-Subset.otf) format("opentype"); }
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+  src: local("NotoSansKR"), url(/jaycefonts/NotoSansKR-Medium-Subset.woff2) format("woff2"), url(/jaycefonts/NotoSansKR-Medium-Subset.woff) format("woff"), url(/jaycefonts/NotoSansKR-Medium-Subset.otf) format("opentype"); }
+
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: local("NotoSansKR"), url(/jaycefonts/NotoSansKR-Bold-Subset.woff2) format("woff2"), url(/jaycefonts/NotoSansKR-Bold-Subset.woff) format("woff"), url(/jaycefonts/NotoSansKR-Bold-Subset.otf) format("opentype"); }
+
+/* remove input default style */
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* upper IE10 version, remove input box default style */
+input::-ms-clear {
+  display: none; }
+
+/* upper IE10 version, remove input box password eye  */
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none; }
+
+/* remove input type number arrow */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* remove select box  default style */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* remove IE Select box arrow */
+select::-ms-expand {
+  display: none; }
+
+/* remove Firefox input number arrow */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+input[type='number'] {
+  -moz-appearance: textfield; }
+
+svg use {
+  pointer-events: none; }
+
+* {
+  -webkit-tap-highlight-color: transparent; }
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/layouts/Navigations/Footer/Desktop.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.Desktop-module__container___DaG7a {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 120px; }
+  .Desktop-module__container___DaG7a .Desktop-module__flex___2f2NV {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; }
+    .Desktop-module__container___DaG7a .Desktop-module__flex___2f2NV .Desktop-module__leftBox___2hX4l .Desktop-module__logo___1URwE {
+      width: 30px;
+      height: 30px; }
+    .Desktop-module__container___DaG7a .Desktop-module__flex___2f2NV .Desktop-module__leftBox___2hX4l .Desktop-module__thanksText___1kw0_ {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff; }
+    .Desktop-module__container___DaG7a .Desktop-module__flex___2f2NV .Desktop-module__leftBox___2hX4l .Desktop-module__copyRightText___2J3Or {
+      font-size: 15px;
+      font-weight: bold;
+      color: #ffffff; }
+    .Desktop-module__container___DaG7a .Desktop-module__flex___2f2NV .Desktop-module__rightBox___3RKWt .Desktop-module__iconBox___lbc2e .Desktop-module__icon___vw70d {
+      margin-right: 10px;
+      filter: invert(100%);
+      width: 40px;
+      height: 40px; }
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/layouts/Navigations/Footer/Mobile.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.Mobile-module__container___33aG7 {
+  position: fixed;
+  bottom: 0px;
+  width: 750px;
+  height: 160px; }
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/layouts/Navigations/Header/Desktop.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.Desktop-module__container___vRKDY {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 80px; }
+  .Desktop-module__container___vRKDY .Desktop-module__logo___3iL8- {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px; }
+  .Desktop-module__container___vRKDY .Desktop-module__menuButtonGroup___32zrC {
+    width: 980px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; }
+    .Desktop-module__container___vRKDY .Desktop-module__menuButtonGroup___32zrC .Desktop-module__menuButton___2dLNw {
+      margin-right: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff; }
+    .Desktop-module__container___vRKDY .Desktop-module__menuButtonGroup___32zrC .Desktop-module__menuButton___2dLNw:hover {
+      color: #d93025;
+      border-bottom: 2px solid #d93025; }
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/layouts/Navigations/Header/Mobile.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.Mobile-module__container___3vbU0 {
+  position: fixed;
+  top: 0px;
+  width: 750px;
+  height: 80px; }
+  .Mobile-module__container___3vbU0 .Mobile-module__logo___3M3er {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px; }
+  .Mobile-module__container___3vbU0 .Mobile-module__menuButtonGroup___VmJxh {
+    width: 920px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; }
+    .Mobile-module__container___3vbU0 .Mobile-module__menuButtonGroup___VmJxh .Mobile-module__menuButton___2b6dw {
+      margin-right: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff; }
+    .Mobile-module__container___3vbU0 .Mobile-module__menuButtonGroup___VmJxh .Mobile-module__menuButton___2b6dw:hover {
+      color: #d93025;
+      border-bottom: 2px solid #d93025; }
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/pages/Home/templates/Desktop.module.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.Desktop-module__container___1axfQ {
+  width: 1080px;
+  padding-top: 150px;
+  margin: 0px auto; }
+  .Desktop-module__container___1axfQ .Desktop-module__titleBox___3HZ34 {
+    display: flex;
+    justify-content: center; }
+    .Desktop-module__container___1axfQ .Desktop-module__titleBox___3HZ34 .Desktop-module__profileImage___2AgGB {
+      margin-right: 60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 150px;
+      border: 5px white dashed; }
+    .Desktop-module__container___1axfQ .Desktop-module__titleBox___3HZ34 .Desktop-module__titleTextBox___SbYVo .Desktop-module__greetingText___3BqC6 {
+      font-size: 120px;
+      color: #ffffff;
+      font-weight: bold; }
+  .Desktop-module__container___1axfQ .Desktop-module__wiseSayingText___1HVny {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center; }
+  .Desktop-module__container___1axfQ .Desktop-module__myselfText___LSXs_ {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center; }
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/src/index.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/pages/Home/templates/Mobile.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+
