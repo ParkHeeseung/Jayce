@@ -1,0 +1,32 @@
+@import '../../../assets/scsses/config.scss';
+
+.container {
+  position: fixed;
+  top: 0px;
+  width: 750px;
+  height: 80px;
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+  }
+  .menuButtonGroup {
+    width: 920px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    .menuButton {
+      margin-right: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: $white;
+    }
+    .menuButton:hover {
+      color: $dark-red;
+      border-bottom: 2px solid $dark-red;
+    }
+  }
+}

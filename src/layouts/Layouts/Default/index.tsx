@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Container } from 'react-grid-system'
 
 import Footer from '../../Navigations/Footer'
@@ -10,11 +10,15 @@ export interface PropsDefaultLayout {
 
 const App: React.FunctionComponent = ({ children }: PropsDefaultLayout) => {
   return (
-    <Container>
-      <Header />
+    <Fragment>
+      <Container fluid>
+        <Header />
+      </Container>
       <div>{children}</div>
-      <Footer />
-    </Container>
+      <Container fluid>
+        <Footer />
+      </Container>
+    </Fragment>
   )
 }
 
